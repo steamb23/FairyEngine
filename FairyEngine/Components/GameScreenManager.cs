@@ -14,6 +14,9 @@ namespace SteamB23.FairyEngine.Components
     public class GameScreenManager : DrawableGameComponent, ICollection<Sprite>
     {
         RenderTarget2D renderTarget;
+        // 실질적인 게임 스크린 위치 및 크기
+        Rectangle realGameScreen;
+        // 가상 게임 스크린 크기
         Rectangle gameScreen;
         SpriteBatch spriteBatch;
         // addictive가 가장 위에 렌더링되며 alpha1, alpha2순임.
@@ -23,11 +26,16 @@ namespace SteamB23.FairyEngine.Components
         public GameScreenManager(Game game, Rectangle gameScreen)
             : base(game)
         {
-            this.gameScreen = gameScreen;
-            if (gameScreen.Width == 0)
-                gameScreen.Width = game.GraphicsDevice.Viewport.Width;
-            if (gameScreen.Height == 0)
-                gameScreen.Height = game.GraphicsDevice.Viewport.Height;
+            this.realGameScreen = gameScreen;
+            if (realGameScreen.Width == 0)
+                realGameScreen.Width = game.GraphicsDevice.Viewport.Width;
+            if (realGameScreen.Height == 0)
+                realGameScreen.Height = game.GraphicsDevice.Viewport.Height;
+
+            gameScreen = realGameScreen;
+            gameScreen.X = 0;
+            gameScreen.Y = 0;
+
             spriteBatch = new SpriteBatch(game.GraphicsDevice);
         }
         public void Add(Sprite item, LayerType layer)
@@ -48,53 +56,23 @@ namespace SteamB23.FairyEngine.Components
         protected override void LoadContent()
         {
             if (renderTarget == null || renderTarget.IsContentLost)
-                renderTarget = new RenderTarget2D(Game.GraphicsDevice, gameScreen.Width, gameScreen.Height);
+                renderTarget = new RenderTarget2D(Game.GraphicsDevice, realGameScreen.Width, realGameScreen.Height);
         }
         public override void Draw(GameTime gameTime)
         {
             var renderTargetTemp = Game.GraphicsDevice.GetRenderTargets();
             Game.GraphicsDevice.SetRenderTarget(this.renderTarget);
-            // Alpha2 그리기
-            if (alpha2.Count != 0)
+            // Alpha1,2 그리기
+            if (alpha1.Count != 0 || alpha2.Count != 0)
             {
                 spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
                 foreach (var temp in alpha2)
                 {
-                    if (temp.Texture.Bounds.Intersects(this.gameScreen))
-                    {
-                        spriteBatch.Draw(
-                            temp.Texture,
-                            temp.Location,
-                            temp.SpriteBox,
-                            temp.Color,
-                            temp.Rotation,
-                            new Vector2(temp.SpriteBox.Width, temp.SpriteBox.Height),
-                            temp.Scale,
-                            temp.SpriteEffect,
-                            0f);
-                    }
+                    Draw(temp);
                 }
-                spriteBatch.End();
-            }
-            // Alpha1 그리기
-            if (alpha1.Count != 0)
-            {
-                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
                 foreach (var temp in alpha1)
                 {
-                    if (temp.Texture.Bounds.Intersects(this.gameScreen))
-                    {
-                        spriteBatch.Draw(
-                            temp.Texture,
-                            temp.Location,
-                            temp.SpriteBox,
-                            temp.Color,
-                            temp.Rotation,
-                            new Vector2(temp.SpriteBox.Width, temp.SpriteBox.Height),
-                            temp.Scale,
-                            temp.SpriteEffect,
-                            0f);
-                    }
+                    Draw(temp);
                 }
                 spriteBatch.End();
             }
@@ -104,25 +82,33 @@ namespace SteamB23.FairyEngine.Components
                 spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive);
                 foreach (var temp in addictive)
                 {
-                    if (temp.Texture.Bounds.Intersects(this.gameScreen))
-                    {
-                        spriteBatch.Draw(
-                            temp.Texture,
-                            temp.Location,
-                            temp.SpriteBox,
-                            temp.Color,
-                            temp.Rotation,
-                            new Vector2(temp.SpriteBox.Width, temp.SpriteBox.Height),
-                            temp.Scale,
-                            temp.SpriteEffect,
-                            0f);
-                    }
+                    Draw(temp);
                 }
                 spriteBatch.End();
             }
-            
-            // 텍스쳐로 내보내서 렌더타겟 복구후 텍스쳐를 표시
             base.Draw(gameTime);
+        }
+        void Draw(Sprite sprite)
+        {
+            bool isDraw =
+                new Rectangle(sprite.Texture.Bounds.X + (int)sprite.Location.X,
+                sprite.Texture.Bounds.Y + (int)sprite.Location.Y,
+                sprite.SpriteBox.Width,
+                sprite.SpriteBox.Height).Intersects(this.gameScreen);
+
+            if (isDraw)
+            {
+                spriteBatch.Draw(
+                    sprite.Texture,
+                    sprite.Location + new Vector2(realGameScreen.X, realGameScreen.Y),
+                    sprite.SpriteBox,
+                    sprite.Color,
+                    sprite.Rotation,
+                    new Vector2(sprite.SpriteBox.Width, sprite.SpriteBox.Height),
+                    sprite.Scale,
+                    sprite.SpriteEffect,
+                    0f);
+            }
         }
         #region ICollection 구현
         public void Add(Sprite item)
@@ -139,19 +125,19 @@ namespace SteamB23.FairyEngine.Components
 
         public bool Contains(Sprite item)
         {
-            throw new NotImplementedException();
+            return addictive.Contains(item) || alpha1.Contains(item) || alpha2.Contains(item);
         }
 
         public void CopyTo(Sprite[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            ListMerge().CopyTo(array, arrayIndex);
         }
 
         public int Count
         {
             get
             {
-                throw new NotImplementedException();
+                return addictive.Count + alpha1.Count + alpha2.Count;
             }
         }
 
@@ -159,23 +145,31 @@ namespace SteamB23.FairyEngine.Components
         {
             get
             {
-                throw new NotImplementedException();
+                return false;
             }
         }
 
         public bool Remove(Sprite item)
         {
-            throw new NotImplementedException();
+            return addictive.Remove(item) || alpha1.Remove(item) || alpha2.Remove(item);
         }
 
         public IEnumerator<Sprite> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return ListMerge().GetEnumerator();
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return ListMerge().GetEnumerator();
+        }
+        List<Sprite> ListMerge()
+        {
+            var result = new List<Sprite>();
+            result.AddRange(addictive);
+            result.AddRange(alpha1);
+            result.AddRange(alpha2);
+            return result;
         }
         #endregion
     }
