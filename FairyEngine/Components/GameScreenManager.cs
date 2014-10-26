@@ -9,9 +9,9 @@ using SteamB23.FairyEngine.Graphics;
 namespace SteamB23.FairyEngine.Components
 {
     /// <summary>
-    /// 스프라이트를 관리하며 백버퍼에 그립니다.
+    /// 스프라이트를 관리하며 그립니다.
     /// </summary>
-    public class GameScreenManager : DrawableGameComponent, ICollection<Sprite>
+    public class GameScreenManager : DrawableGameComponent, ICollection<GameSprite>
     {
         RenderTarget2D renderTarget;
         // 실질적인 게임 스크린 위치 및 크기
@@ -20,9 +20,9 @@ namespace SteamB23.FairyEngine.Components
         Rectangle gameScreen;
         SpriteBatch spriteBatch;
         // addictive가 가장 위에 렌더링되며 alpha1, alpha2순임.
-        List<Sprite> addictive = new List<Sprite>();
-        List<Sprite> alpha1 = new List<Sprite>();
-        List<Sprite> alpha2 = new List<Sprite>();
+        List<GameSprite> addictive = new List<GameSprite>();
+        List<GameSprite> alpha1 = new List<GameSprite>();
+        List<GameSprite> alpha2 = new List<GameSprite>();
         public GameScreenManager(Game game, Rectangle gameScreen)
             : base(game)
         {
@@ -32,13 +32,13 @@ namespace SteamB23.FairyEngine.Components
             if (realGameScreen.Height == 0)
                 realGameScreen.Height = game.GraphicsDevice.Viewport.Height;
 
-            gameScreen = realGameScreen;
-            gameScreen.X = 0;
-            gameScreen.Y = 0;
+            this.gameScreen = realGameScreen;
+            this.gameScreen.X = 0;
+            this.gameScreen.Y = 0;
 
             spriteBatch = new SpriteBatch(game.GraphicsDevice);
         }
-        public void Add(Sprite item, LayerType layer)
+        public void Add(GameSprite item, LayerType layer)
         {
             switch (layer)
             {
@@ -88,7 +88,7 @@ namespace SteamB23.FairyEngine.Components
             }
             base.Draw(gameTime);
         }
-        void Draw(Sprite sprite)
+        void Draw(GameSprite sprite)
         {
             bool isDraw =
                 new Rectangle(sprite.Texture.Bounds.X + (int)sprite.Location.X,
@@ -111,7 +111,7 @@ namespace SteamB23.FairyEngine.Components
             }
         }
         #region ICollection 구현
-        public void Add(Sprite item)
+        public void Add(GameSprite item)
         {
             this.Add(item, LayerType.Alpha1);
         }
@@ -123,12 +123,12 @@ namespace SteamB23.FairyEngine.Components
             alpha2.Clear();
         }
 
-        public bool Contains(Sprite item)
+        public bool Contains(GameSprite item)
         {
             return addictive.Contains(item) || alpha1.Contains(item) || alpha2.Contains(item);
         }
 
-        public void CopyTo(Sprite[] array, int arrayIndex)
+        public void CopyTo(GameSprite[] array, int arrayIndex)
         {
             ListMerge().CopyTo(array, arrayIndex);
         }
@@ -149,12 +149,12 @@ namespace SteamB23.FairyEngine.Components
             }
         }
 
-        public bool Remove(Sprite item)
+        public bool Remove(GameSprite item)
         {
             return addictive.Remove(item) || alpha1.Remove(item) || alpha2.Remove(item);
         }
 
-        public IEnumerator<Sprite> GetEnumerator()
+        public IEnumerator<GameSprite> GetEnumerator()
         {
             return ListMerge().GetEnumerator();
         }
@@ -163,9 +163,9 @@ namespace SteamB23.FairyEngine.Components
         {
             return ListMerge().GetEnumerator();
         }
-        List<Sprite> ListMerge()
+        List<GameSprite> ListMerge()
         {
-            var result = new List<Sprite>();
+            var result = new List<GameSprite>();
             result.AddRange(addictive);
             result.AddRange(alpha1);
             result.AddRange(alpha2);
@@ -188,4 +188,5 @@ namespace SteamB23.FairyEngine.Components
         /// </summary>
         Addictive
     }
+
 }

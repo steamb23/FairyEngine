@@ -15,47 +15,28 @@ namespace SteamB23.FairyEngine.Graphics
             this.content = content;
             this.assetName = assetName;
             this.LoadContent();
-            this.Color = Color.White;
         }
-        // 복구용
         ContentManager content;
         string assetName;
         public virtual void LoadContent()
         {
             Texture = content.Load<Texture2D>(assetName);
         }
-
+        public void SetSpriteBox(int spriteBoxesCount)
+        {
+            this.SpriteBox = SpriteBoxes[spriteBoxesCount];
+        }
+        public Rectangle[] SpriteBoxes
+        {
+            get;
+            set;
+        }
         public Texture2D Texture
         {
             get;
             set;
         }
         public Rectangle SpriteBox
-        {
-            get;
-            set;
-        }
-        public Vector2 Location
-        {
-            get;
-            set;
-        }
-        public float Rotation
-        {
-            get;
-            set;
-        }
-        public float Scale
-        {
-            get;
-            set;
-        }
-        public SpriteEffects SpriteEffect
-        {
-            get;
-            set;
-        }
-        public Color Color
         {
             get;
             set;

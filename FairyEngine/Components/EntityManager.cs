@@ -8,11 +8,16 @@ using SteamB23.FairyEngine.Entities;
 
 namespace SteamB23.FairyEngine.Components
 {
-    public class EntityManager:GameComponent,ICollection<Entity>
+    public class EntityManager : GameComponent, ICollection<Entity>
     {
+
         List<Entity> entities = new List<Entity>();
-        
-        public EntityManager(Game game) : base(game)
+
+        public EntityManager(Game game)
+            : base(game)
+        {
+        }
+        void DestroyedEventHandler(object sender, EventArgs e)
         {
         }
         #region ICollection 구현
@@ -20,11 +25,15 @@ namespace SteamB23.FairyEngine.Components
         {
             entities.Add(item);
             Game.Components.Add(item);
+            item.Destroyed += this.DestroyedEventHandler;
         }
         public bool Remove(Entity item)
         {
-            entities.Remove(item);
-            return Game.Components.Remove(item);
+            bool result = entities.Remove(item);
+            Game.Components.Remove(item);
+            if (result)
+                item.Destroyed -= this.DestroyedEventHandler;
+            return result;
         }
 
 
@@ -73,5 +82,13 @@ namespace SteamB23.FairyEngine.Components
             return entities.GetEnumerator();
         }
         #endregion
+
+        public GameResource GameManager
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

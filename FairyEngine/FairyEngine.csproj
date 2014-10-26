@@ -44,19 +44,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameResource.cs" />
     <Compile Include="Components\GameScreenManager.cs" />
-    <Compile Include="EngineManager.cs" />
+    <Compile Include="Components\GameUI.cs" />
     <Compile Include="Entities\Bullet.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Components\EntityManager.cs" />
     <Compile Include="Graphics\Sprite.cs" />
+    <Compile Include="UIComponents\ScoreView.cs" />
+    <Compile Include="Graphics\GameSprite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UIComponents\UIComponent.cs" />
+    <Compile Include="Components\Score.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LICENSE" />
     <None Include="packages.config" />
     <None Include="TextFile1.md" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
