@@ -18,17 +18,15 @@ namespace SteamB23.FairyEngine.UIComponents
          * (*표시는 생략 가능)
          */
         int spacing;
-        Vector2 position;
 
         Score score;
-        public ScoreView(Game game, string name, Sprite sprite,Vector2 position ,int spacing, Score score)
+        public ScoreView(Game game, string name, Sprite sprite,int spacing, Score score)
             : base(game, name)
         {
             if (sprite.SpriteBoxes.Length > 10)
                 throw new ArgumentException("매개변수의 SpriteBoxes.Length는 10이상이어야합니다.");
             this.Sprite = sprite;
             this.spacing = spacing;
-            this.position = position;
             this.score = score;
         }
         public override void Update(GameTime gameTime)
@@ -39,23 +37,23 @@ namespace SteamB23.FairyEngine.UIComponents
         {
             var spriteBatch = ((GameResource)Game.Services.GetService(typeof(GameResource))).spriteBatch;
             var score = ((Score)Game.Services.GetService(typeof(Score)));
-            int multiple=1;
-            Vector2 location;
+            Vector2 location = Location;
             for (int i = score.Length; i > 0; --i)
             {
-                location=Location;
-                location.X = (location.X * multiple) + (spacing * multiple);
+                Sprite.SetSpriteBox(score[i]);
                 spriteBatch.Draw(
                     Sprite.Texture,
                     location,
-                    Sprite.SpriteBoxes[score[i]],
+                    Sprite.SpriteBox,
                     Color.White,
                     0f,
                     new Vector2(0,Sprite.SpriteBox.Height),
                     1f,
                     SpriteEffects.None,
                     0f);
+                location.X += Sprite.SpriteBox.Width + spacing;
             }
+
         }
     }
 }
