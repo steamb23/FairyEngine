@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\ControllerManager.cs" />
     <Compile Include="GameResource.cs" />
     <Compile Include="Components\GameScreenManager.cs" />
     <Compile Include="Components\GameUI.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Components\EntityManager.cs" />
     <Compile Include="Graphics\Sprite.cs" />
+    <Compile Include="IControllerConfig.cs" />
     <Compile Include="UIComponents\ScoreView.cs" />
     <Compile Include="Graphics\GameSprite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
