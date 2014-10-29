@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SteamB23.FairyEngine.Components;
 
-namespace SteamB23.FairyEngine.Components
+namespace SteamB23.FairyEngine
 {
     /// <summary>
     /// 공통적인 부분을 제공합니다.

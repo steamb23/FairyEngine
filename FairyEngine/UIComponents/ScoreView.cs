@@ -29,10 +29,6 @@ namespace SteamB23.FairyEngine.UIComponents
             this.spacing = spacing;
             this.score = score;
         }
-        public override void Update(GameTime gameTime)
-        {
-            base.Update(gameTime);
-        }
         public override void Draw(GameTime gameTime)
         {
             var spriteBatch = ((GameResource)Game.Services.GetService(typeof(GameResource))).spriteBatch;

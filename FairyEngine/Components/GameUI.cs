@@ -8,7 +8,7 @@ using SteamB23.FairyEngine.Graphics;
 namespace SteamB23.FairyEngine.Components
 {
     public class GameUI : DrawableGameComponent
-    {
+    {        
         public GameUI(Game game)
             : base(game)
         {

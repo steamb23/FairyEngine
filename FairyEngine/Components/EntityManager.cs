@@ -82,13 +82,5 @@ namespace SteamB23.FairyEngine.Components
             return entities.GetEnumerator();
         }
         #endregion
-
-        public GameResource GameManager
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
     }
 }
