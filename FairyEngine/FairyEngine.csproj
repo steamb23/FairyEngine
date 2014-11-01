@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\ControllerManager.cs" />
+    <Compile Include="Components\Controller.cs" />
     <Compile Include="GameResource.cs" />
     <Compile Include="Components\GameScreenManager.cs" />
     <Compile Include="Components\GameUI.cs" />

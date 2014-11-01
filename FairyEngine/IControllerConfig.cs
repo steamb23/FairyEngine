@@ -6,16 +6,8 @@ using Microsoft.Xna.Framework.Input;
 
 namespace SteamB23.FairyEngine
 {
-    interface IControllerConfig
+    public interface IControllerConfig
     {
-        float XAxisDeadZone
-        {
-            get;
-        }
-        float YAxisDeadZone
-        {
-            get;
-        }
         Keys Up
         {
             get;
@@ -41,6 +33,10 @@ namespace SteamB23.FairyEngine
             get;
         }
         Keys Start
+        {
+            get;
+        }
+        Keys LB
         {
             get;
         }
