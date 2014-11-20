@@ -45,6 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Controller.cs" />
+    <Compile Include="Components\IEntityManagerService.cs" />
+    <Compile Include="Components\IGameScreenManagerService.cs" />
+    <Compile Include="Components\IGameUIService.cs" />
+    <Compile Include="Components\IScoreService.cs" />
     <Compile Include="GameResource.cs" />
     <Compile Include="Components\GameScreenManager.cs" />
     <Compile Include="Components\GameUI.cs" />
@@ -64,7 +68,6 @@
     <None Include="packages.config" />
     <None Include="TextFile1.md" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

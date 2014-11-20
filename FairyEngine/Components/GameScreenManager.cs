@@ -11,7 +11,7 @@ namespace SteamB23.FairyEngine.Components
     /// <summary>
     /// 스프라이트를 관리하며 그립니다.
     /// </summary>
-    public class GameScreenManager : DrawableGameComponent, ICollection<GameSprite>
+    public class GameScreenManager : DrawableGameComponent, ICollection<GameSprite>, IGameScreenService
     {
         RenderTarget2D renderTarget;
         // 실질적인 게임 스크린 위치 및 크기
@@ -64,8 +64,8 @@ namespace SteamB23.FairyEngine.Components
         }
         public override void Draw(GameTime gameTime)
         {
-            var renderTargetTemp = Game.GraphicsDevice.GetRenderTargets();
-            Game.GraphicsDevice.SetRenderTarget(this.renderTarget);
+            //var renderTargetTemp = Game.GraphicsDevice.GetRenderTargets();
+            //Game.GraphicsDevice.SetRenderTarget(this.renderTarget);
             // Alpha1,2 그리기
             if (alpha1.Count != 0 || alpha2.Count != 0 || alpha3.Count != 0)
             {

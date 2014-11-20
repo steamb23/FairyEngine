@@ -8,7 +8,7 @@ using SteamB23.FairyEngine.Entities;
 
 namespace SteamB23.FairyEngine.Components
 {
-    public class EntityManager : GameComponent, ICollection<Entity>
+    public class EntityManager : GameComponent, ICollection<Entity>, IEntityService
     {
 
         List<Entity> entities = new List<Entity>();

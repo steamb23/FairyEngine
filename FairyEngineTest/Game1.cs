@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
+using SteamB23.FairyEngine;
 using SteamB23.FairyEngine.Components;
 #endregion
 
@@ -20,7 +21,8 @@ namespace FairyEngineTest
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         public Controller controller;
-        Class1 classs;
+        GameResource resource;
+        //Class1 classs;
        
         public Game1()
             : base()
@@ -38,14 +40,7 @@ namespace FairyEngineTest
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            controller = new Controller(this, new Config());
-            controller.UpdateOrder = 1;
-            classs = new Class1(this);
-            classs.UpdateOrder = 2;
-
-            this.Components.Add(controller);
-            this.Components.Add(classs);
-
+            resource = new GameResource(this, new Rectangle(), 5);
             base.Initialize();
         }
 
@@ -57,6 +52,8 @@ namespace FairyEngineTest
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            Console.WriteLine(Services.GetService(typeof(IGraphicsDeviceService)).ToString());
 
             // TODO: use this.Content to load your game content here
         }
@@ -77,6 +74,7 @@ namespace FairyEngineTest
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            //Console.WriteLine("Update");
             //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             //    Exit();
             GamePad.GetState(PlayerIndex.One, GamePadDeadZone.Circular);
@@ -91,6 +89,7 @@ namespace FairyEngineTest
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            //Console.WriteLine("Draw");
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here

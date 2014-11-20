@@ -39,6 +39,10 @@ namespace SteamB23.FairyEngine
             get;
             private set;
         }
+        public GameResource(Game game, Rectangle gameScreen, int scoreRate)
+            :this(game,new EntityManager(game),new GameScreenManager(game,gameScreen),new GameUI(game), new Score(game, scoreRate))
+        {
+        }
         public GameResource(Game game, EntityManager entityManager, GameScreenManager gameScreenManager, GameUI gameUI, Score score)
         {
             this.game = game;
@@ -59,9 +63,9 @@ namespace SteamB23.FairyEngine
             game.Components.Add(gameScreenManager);
             game.Components.Add(gameUI);
 
-            game.Services.AddService(entityManager.GetType(), entityManager);
-            game.Services.AddService(gameScreenManager.GetType(), gameScreenManager);
-            game.Services.AddService(gameUI.GetType(), gameUI);
+            game.Services.AddService(typeof(IEntityService), entityManager);
+            game.Services.AddService(typeof(IGameScreenService), gameScreenManager);
+            game.Services.AddService(typeof(IGameUIService), gameUI);
             game.Services.AddService(score.GetType(), score);
         }
     }
