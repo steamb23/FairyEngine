@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="e987ac17-5aef-44bd-8455-0adc2a0d6867" name="게임동작 순서도" linkedPackageId="6391db6c-fd23-4ac9-884c-e7cf44ebd377" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="e373120c-1594-4553-8519-b02da03d3b1f">
+      <elementDefinition Id="ed95e87e-f36a-45f6-9967-27cf70f86c3b" />
+      <body>초기화 내용:
+시작시간
+랜덤시드(현재시간에서 가져옴)</body>
+      <annotatedElements>
+        <opaqueActionMoniker Id="ffea53f6-581c-4c49-a6a7-88ecafa15192" LastKnownName="초기화" />
+      </annotatedElements>
+    </comment>
+    <comment Id="558813ff-f84f-4ed1-98a8-5a693be3ce7f">
+      <elementDefinition Id="ab440fdf-b1be-4366-91fb-c1191d285f9f" />
+      <body>게임오버</body>
+      <annotatedElements>
+        <outputPinMoniker Id="bebd2182-dfca-4968-b0ba-ffc54b50152c" LastKnownName="참" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="ddd650f4-9a81-4d91-9a9c-f689ac7e64a0" name="게임동작 순서도" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="5e9b85c7-58b3-4af3-842a-ae27e7bc2aa8" />
+        <nodes>
+          <initialNode Id="0b7055b2-1d66-46de-bc9d-0d1304c3e4c7" name="Initial1" isLeaf="false">
+            <elementDefinition Id="9995e6a9-d7ac-491b-ad59-c23ff49b9ad9" />
+            <flowNodeTargets>
+              <controlFlow Id="274af8ac-1a86-4eca-b50b-58c575c42cc0" isLeaf="false">
+                <opaqueActionMoniker Id="e7e04165-433f-4abd-ba57-3f7dcd10d62f" LastKnownName="타이틀 화면" />
+                <elementDefinition Id="0a1e1057-c6df-405f-b685-29356bf67af7" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="e7e04165-433f-4abd-ba57-3f7dcd10d62f" name="타이틀 화면" isLeaf="false">
+            <elementDefinition Id="aa80b6b1-a9ff-4aea-8a76-95c5e6e09231" />
+            <pins>
+              <opaqueActionHasOutputValues>
+                <outputPin Id="f71f31aa-650a-45b9-9ab1-8b51fac10872" name="종료" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="b85a3054-415d-4897-9dd9-bed775eadf8e" />
+                  <objectFlowTargets>
+                    <objectFlow Id="fe488596-6d21-45a5-acfd-792c176d1ef6" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <activityFinalNodeMoniker Id="4f731ab5-cdef-47a0-a2ae-e489ea510043" LastKnownName="ActivityFinal1" />
+                      <elementDefinition Id="4f6f9700-0a65-4d53-ac65-775246f44b98" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="5d1b3b54-b9af-48fe-91c5-65cffff93238" name="2147483647" value="2147483647">
+                      <elementDefinition Id="e8ffbb7f-6f37-4eeb-ad60-1e1967dc8d64" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+              <opaqueActionHasOutputValues>
+                <outputPin Id="403e687f-90bf-40ad-89a5-25c042a72b64" name="게임 시작" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="ee4db715-b7f2-461e-9c6f-7950b3fafc63" />
+                  <objectFlowTargets>
+                    <objectFlow Id="2188a626-f776-44df-b8a5-1bc5e2dbcfe9" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <opaqueActionMoniker Id="ffea53f6-581c-4c49-a6a7-88ecafa15192" LastKnownName="초기화" />
+                      <elementDefinition Id="51c574cd-5f4c-46b3-a8e5-5cfa05b68aa1" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="ae0d781a-b422-4957-8781-8378593aca35" name="2147483647" value="2147483647">
+                      <elementDefinition Id="ad32695c-67b8-4879-a83b-2f68ebee1239" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+              <opaqueActionHasOutputValues>
+                <outputPin Id="7083767a-e3e5-4989-8e31-28eb44ca9b1d" name="리플레이" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="6143c00b-fdbe-49b4-b23b-ef4c7c9af896" />
+                  <objectFlowTargets>
+                    <objectFlow Id="0216eacc-a359-468c-9c6c-614d19b82bc6" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <opaqueActionMoniker Id="f927c7f1-758e-40f8-9979-f63355544547" LastKnownName="파일 로딩" />
+                      <elementDefinition Id="5fc4e205-e023-44fe-899a-873ac3484b79" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="45a3bdbb-d417-4804-901e-21831678d52d" name="2147483647" value="2147483647">
+                      <elementDefinition Id="7eb3013e-dfc7-4b09-8b48-ef354f500377" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+          <activityFinalNode Id="4f731ab5-cdef-47a0-a2ae-e489ea510043" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="7ce08d00-591f-4386-9a96-58a6f33381a5" />
+          </activityFinalNode>
+          <opaqueAction Id="ffea53f6-581c-4c49-a6a7-88ecafa15192" name="초기화" isLeaf="false">
+            <elementDefinition Id="3d3cc849-ed96-45e2-8499-5c8d26d882d4" />
+            <flowNodeTargets>
+              <controlFlow Id="570fc391-9213-45f4-970c-4395e526696b" isLeaf="false">
+                <opaqueActionMoniker Id="8d10c198-da28-41c9-9372-f895164fd2a6" LastKnownName="플레이어 업데이트" />
+                <elementDefinition Id="49d9a4e5-5481-4def-9cb2-d6073b95ad78" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="f927c7f1-758e-40f8-9979-f63355544547" name="파일 로딩" isLeaf="false">
+            <elementDefinition Id="171845a2-c9e2-4f25-b410-ab98ed7a2792" />
+            <flowNodeTargets>
+              <controlFlow Id="6d9fe4fb-c56b-4c65-ba01-0972feef4578" isLeaf="false">
+                <opaqueActionMoniker Id="8d10c198-da28-41c9-9372-f895164fd2a6" LastKnownName="플레이어 업데이트" />
+                <elementDefinition Id="4b5ca906-70d7-4b7e-a7ed-4b872bd1c2a9" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="8d10c198-da28-41c9-9372-f895164fd2a6" name="플레이어 업데이트" isLeaf="false">
+            <elementDefinition Id="295578d7-1880-4864-9553-af1d04a0e6d7" />
+            <flowNodeTargets>
+              <controlFlow Id="fc46145f-8495-4ba6-a5dd-58794d68efe8" isLeaf="false">
+                <opaqueActionMoniker Id="a97c81d1-1218-45f7-bd78-5d4b1db12e6a" LastKnownName="적 및 총알 업데이트" />
+                <elementDefinition Id="86cc27f6-f921-4c77-b106-3138f2756556" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="a97c81d1-1218-45f7-bd78-5d4b1db12e6a" name="적 및 총알 업데이트" isLeaf="false">
+            <elementDefinition Id="e33457e4-b2ad-416a-b58a-979e94dd8d35" />
+            <flowNodeTargets>
+              <controlFlow Id="8252dc76-796e-462e-8849-49cff981bb49" isLeaf="false">
+                <opaqueActionMoniker Id="bc30eef9-e892-41f6-921c-f4978b41ded5" LastKnownName="충돌?" />
+                <elementDefinition Id="ced2614a-4b06-442d-b88a-acc99a4dd661" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="bc30eef9-e892-41f6-921c-f4978b41ded5" name="충돌?" isLeaf="false">
+            <elementDefinition Id="34fa0b67-904a-4626-8931-f5b514b455a2" />
+            <pins>
+              <opaqueActionHasOutputValues>
+                <outputPin Id="edf55028-0cd2-4463-a231-45a7dbf54123" name="참" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="8018d7b6-6a5d-4b9d-9477-f2d46026f9a6" />
+                  <objectFlowTargets>
+                    <objectFlow Id="a82cae6e-ba48-4571-a039-c302b5506bbe" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <opaqueActionMoniker Id="2f31aec2-da4c-4a44-98bf-d37b6ca682b9" LastKnownName="생명==0?" />
+                      <elementDefinition Id="d6e6cf99-cd8b-4a10-8e96-93774947948c" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="e7c2294a-63fd-487e-9111-178329ac742a" name="2147483647" value="2147483647">
+                      <elementDefinition Id="5c676a02-29ff-4c50-8104-0562fabf8c30" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+              <opaqueActionHasOutputValues>
+                <outputPin Id="52a05a1c-eb92-40bd-8a74-1ee82460f8e5" name="거짓" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="b154feff-b096-4ef8-ac39-590563d1b49c" />
+                  <objectFlowTargets>
+                    <objectFlow Id="28bf5d93-0f61-418c-9c1b-cbb4cda5aedb" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <opaqueActionMoniker Id="8d10c198-da28-41c9-9372-f895164fd2a6" LastKnownName="플레이어 업데이트" />
+                      <elementDefinition Id="42f9e4e3-163f-41fa-9e68-567234ba94a2" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="481dfc29-d496-4a0f-8eb3-95093072443d" name="2147483647" value="2147483647">
+                      <elementDefinition Id="f90200a8-411a-49fc-8ed2-8eab595a1f58" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction Id="2f31aec2-da4c-4a44-98bf-d37b6ca682b9" name="생명==0?" isLeaf="false">
+            <elementDefinition Id="af3ac342-dc6f-4516-ac60-72f0969d5134" />
+            <pins>
+              <opaqueActionHasOutputValues>
+                <outputPin Id="d68b587d-90e3-4c60-ab7a-657ad515964f" name="거짓" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="752291cc-61d8-48e9-bd9c-0360a8465cf0" />
+                  <objectFlowTargets>
+                    <objectFlow Id="39367e7d-03c2-4090-b674-6aa6279e6544" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <opaqueActionMoniker Id="e816905c-2123-4e40-859a-e16bf312ce96" LastKnownName="생명 감소" />
+                      <elementDefinition Id="b98c4a80-3faa-482b-9659-d01b04d3d39c" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="6319ed8e-cdb2-4d7d-b5c9-719f62555f1b" name="2147483647" value="2147483647">
+                      <elementDefinition Id="d5dbcbdb-5629-4c37-bad2-bd28c9c7705d" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+              <opaqueActionHasOutputValues>
+                <outputPin Id="26c1eefd-5154-4d01-8c6e-b7c8f5277628" name="참" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="7104a4b4-c717-4e93-bfd4-18dc57f5685d" />
+                  <objectFlowTargets>
+                    <objectFlow Id="8ba68a12-44c5-4bc8-90ab-a7eff121acee" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <opaqueActionMoniker Id="1f50bfd4-f2e4-4777-9fd2-fd0b855552c5" LastKnownName="크레딧==0?" />
+                      <elementDefinition Id="ab2377ba-fd61-44d2-8197-7bdb994646b0" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="3c43835c-9485-4be3-bc21-a69b1825b5ba" name="2147483647" value="2147483647">
+                      <elementDefinition Id="1c18abe2-8c26-40b4-a759-c9e6f0f642b8" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction Id="e816905c-2123-4e40-859a-e16bf312ce96" name="생명 감소" isLeaf="false">
+            <elementDefinition Id="73fc564a-2559-482c-a9a4-92c1bbbfa281" />
+            <flowNodeTargets>
+              <controlFlow Id="1c8ca468-8cbc-4de9-8bd5-b73cba734011" isLeaf="false">
+                <mergeNodeMoniker Id="1aff46b2-3547-4fb9-b670-4fbc1a3611c4" LastKnownName="Merge1" />
+                <elementDefinition Id="14fe5314-b8df-4277-b930-37ccb6640571" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="1f50bfd4-f2e4-4777-9fd2-fd0b855552c5" name="크레딧==0?" isLeaf="false">
+            <elementDefinition Id="1e8b3e7a-c73c-40a3-b66e-24e42a5aff30" />
+            <pins>
+              <opaqueActionHasOutputValues>
+                <outputPin Id="bebd2182-dfca-4968-b0ba-ffc54b50152c" name="참" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="4d16af02-f9fe-4e41-9ffe-333bf52514bc" />
+                  <objectFlowTargets>
+                    <objectFlow Id="9b10cc6b-007b-43b5-9a9d-77744906aa24" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <opaqueActionMoniker Id="d8b1bb54-4f9d-466b-b687-95205e64be9b" LastKnownName="플레이모드?!" />
+                      <elementDefinition Id="7ae7b32d-d949-41f7-81cb-44ae218f5d6a" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="8bb72f63-a956-4929-a523-ac01b02b60d0" name="2147483647" value="2147483647">
+                      <elementDefinition Id="5a4543c0-9080-43be-923f-4c443957cea3" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+              <opaqueActionHasOutputValues>
+                <outputPin Id="5013cf51-44c6-4080-8e3d-c7abcf24f01a" name="거짓" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="f5419ef2-b4c4-41f0-96c9-a246511c2c59" />
+                  <objectFlowTargets>
+                    <objectFlow Id="e0ea1661-1910-47f9-a8bc-50d40005110e" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <opaqueActionMoniker Id="11e73ef1-cef3-4b49-95d7-20919fdc24b0" LastKnownName="크레딧 감소" />
+                      <elementDefinition Id="700e3864-ecde-4f7b-944e-2a4179dda705" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="d8188415-64ce-4dca-bd52-eedca98f0fc5" name="2147483647" value="2147483647">
+                      <elementDefinition Id="4eb5ff0a-6e16-4a84-8fef-6d3c2f8d7845" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction Id="11e73ef1-cef3-4b49-95d7-20919fdc24b0" name="크레딧 감소" isLeaf="false">
+            <elementDefinition Id="75f8889a-0589-4705-b9d0-77abaa701265" />
+            <flowNodeTargets>
+              <controlFlow Id="d74905ae-95b7-4ed2-93e1-80cd06ce27ba" isLeaf="false">
+                <mergeNodeMoniker Id="1aff46b2-3547-4fb9-b670-4fbc1a3611c4" LastKnownName="Merge1" />
+                <elementDefinition Id="d4fd8db1-2a28-4aee-8d5a-9774ee503c92" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <mergeNode Id="1aff46b2-3547-4fb9-b670-4fbc1a3611c4" name="Merge1" isLeaf="false">
+            <elementDefinition Id="5ff8b90d-072a-4d04-9a26-4e5ce391cfdb" />
+            <flowNodeTargets>
+              <controlFlow Id="da071d18-594a-4fbe-997e-e498bbaf198a" isLeaf="false">
+                <opaqueActionMoniker Id="8d10c198-da28-41c9-9372-f895164fd2a6" LastKnownName="플레이어 업데이트" />
+                <elementDefinition Id="b84b55be-815d-49bd-bd3c-6c82085473e7" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <opaqueAction Id="d8b1bb54-4f9d-466b-b687-95205e64be9b" name="플레이모드?!" isLeaf="false">
+            <elementDefinition Id="81fdbc96-6a63-4017-8f82-3ca24701bd7c" />
+            <pins>
+              <opaqueActionHasOutputValues>
+                <outputPin Id="4a127df7-e8b3-4084-a39c-071772221344" name="리플레이" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="87e3f923-b7f9-490e-972b-feec147a80d6" />
+                  <objectFlowTargets>
+                    <objectFlow Id="8e1216c7-d3b7-472f-9e1c-179966ac82e5" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <mergeNodeMoniker Id="cb08d610-1f86-4b29-b21c-899795883540" LastKnownName="Merge2" />
+                      <elementDefinition Id="3e92f9ca-b3b1-4cbc-8ee7-2b6c36c14622" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="f0dc08c4-2a19-45cb-a2d2-a46d60ef1e77" name="2147483647" value="2147483647">
+                      <elementDefinition Id="718b15db-087b-41b3-aa2d-5a928d1529c2" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+              <opaqueActionHasOutputValues>
+                <outputPin Id="41c47a50-3298-4602-881e-7dc27767d91d" name="기본" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="c75823dc-4e8a-4d3f-b0b2-97002ee7850b" />
+                  <objectFlowTargets>
+                    <objectFlow Id="826740f2-9672-4101-982f-38d66b26f102" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <opaqueActionMoniker Id="86502b0b-0a35-4115-97f8-6feea84d020d" LastKnownName="리플레이 저장" />
+                      <elementDefinition Id="be005f0f-9ef5-4e79-9b77-a43aec3e845b" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="176b32d3-a8a9-461e-a9ce-cb4ae05085db" name="2147483647" value="2147483647">
+                      <elementDefinition Id="14012b64-5dd9-4911-8a50-1f7c63a64fb6" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction Id="86502b0b-0a35-4115-97f8-6feea84d020d" name="리플레이 저장" isLeaf="false">
+            <elementDefinition Id="45b92896-4a0d-440e-a1dd-0aaafec70f84" />
+            <flowNodeTargets>
+              <controlFlow Id="5d0a7ec9-cfa0-48ab-b9cd-399d60b0d7df" isLeaf="false">
+                <mergeNodeMoniker Id="cb08d610-1f86-4b29-b21c-899795883540" LastKnownName="Merge2" />
+                <elementDefinition Id="ce5fe375-33f3-411a-bed4-0a7d539ba327" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <mergeNode Id="cb08d610-1f86-4b29-b21c-899795883540" name="Merge2" isLeaf="false">
+            <elementDefinition Id="33856f3b-9df1-4142-9c2b-af850959a9a6" />
+            <flowNodeTargets>
+              <controlFlow Id="9ce2ee7c-5a7a-4ea7-9ea4-bc385c640344" isLeaf="false">
+                <opaqueActionMoniker Id="e7e04165-433f-4abd-ba57-3f7dcd10d62f" LastKnownName="타이틀 화면" />
+                <elementDefinition Id="b5cf5248-e29a-4251-8ed6-77cf61d5d98b" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="6391db6c-fd23-4ac9-884c-e7cf44ebd377" name="FairyEngineDesign">
+    <elementDefinition Id="434fa0cf-cc1c-4408-aad2-3d9c3337ae5e" />
+    <profileInstances>
+      <packageHasProfileInstances Id="50cfa0de-55a9-4f72-90c8-549ed57ee3e7">
+        <profileInstance Id="63952f58-6881-4119-a582-564115cedb44" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="dd38add5-5d15-44f8-8c17-c47da711bd85">
+        <profileInstance Id="07c10aef-fe7e-478d-ae5c-3cf6553051a3" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

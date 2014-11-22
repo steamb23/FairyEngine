@@ -1,0 +1,782 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+  dslVersion="1.0.0.0"
+  Id="434fa0cf-cc1c-4408-aad2-3d9c3337ae5e"
+  name="FairyEngineDesign" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="ed95e87e-f36a-45f6-9967-27cf70f86c3b">
+      <body>초기화 내용:
+시작시간
+랜덤시드(현재시간에서 가져옴)</body>
+      <annotatedElements>
+        <opaqueActionMoniker
+          Id="3d3cc849-ed96-45e2-8499-5c8d26d882d4"
+          LastKnownName="초기화"
+          LastKnownLocation="FairyEngineDesign.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="ab440fdf-b1be-4366-91fb-c1191d285f9f">
+      <body>게임오버</body>
+      <annotatedElements>
+        <outputPinMoniker
+          Id="4d16af02-f9fe-4e41-9ffe-333bf52514bc"
+          LastKnownName="참"
+          LastKnownLocation="FairyEngineDesign.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <activity
+        Id="5e9b85c7-58b3-4af3-842a-ae27e7bc2aa8"
+        name="게임동작 순서도"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="9995e6a9-d7ac-491b-ad59-c23ff49b9ad9"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0a1e1057-c6df-405f-b685-29356bf67af7"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="aa80b6b1-a9ff-4aea-8a76-95c5e6e09231"
+                  LastKnownName="타이틀 화면"
+                  LastKnownLocation="FairyEngineDesign.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="aa80b6b1-a9ff-4aea-8a76-95c5e6e09231"
+            name="타이틀 화면"
+            isLeaf="false">
+            <pins>
+              <opaqueActionHasOutputValues>
+                <outputPin
+                  Id="b85a3054-415d-4897-9dd9-bed775eadf8e"
+                  name="종료"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="4f6f9700-0a65-4d53-ac65-775246f44b98"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <activityFinalNodeMoniker
+                        Id="7ce08d00-591f-4386-9a96-58a6f33381a5"
+                        LastKnownName="ActivityFinal1"
+                        LastKnownLocation="FairyEngineDesign.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="e8ffbb7f-6f37-4eeb-ad60-1e1967dc8d64"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+              <opaqueActionHasOutputValues>
+                <outputPin
+                  Id="ee4db715-b7f2-461e-9c6f-7950b3fafc63"
+                  name="게임 시작"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="51c574cd-5f4c-46b3-a8e5-5cfa05b68aa1"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <opaqueActionMoniker
+                        Id="3d3cc849-ed96-45e2-8499-5c8d26d882d4"
+                        LastKnownName="초기화"
+                        LastKnownLocation="FairyEngineDesign.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="ad32695c-67b8-4879-a83b-2f68ebee1239"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+              <opaqueActionHasOutputValues>
+                <outputPin
+                  Id="6143c00b-fdbe-49b4-b23b-ef4c7c9af896"
+                  name="리플레이"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="5fc4e205-e023-44fe-899a-873ac3484b79"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <opaqueActionMoniker
+                        Id="171845a2-c9e2-4f25-b410-ab98ed7a2792"
+                        LastKnownName="파일 로딩"
+                        LastKnownLocation="FairyEngineDesign.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="7eb3013e-dfc7-4b09-8b48-ef354f500377"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+          <activityFinalNode
+            Id="7ce08d00-591f-4386-9a96-58a6f33381a5"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="3d3cc849-ed96-45e2-8499-5c8d26d882d4"
+            name="초기화"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="49d9a4e5-5481-4def-9cb2-d6073b95ad78"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="295578d7-1880-4864-9553-af1d04a0e6d7"
+                  LastKnownName="플레이어 업데이트"
+                  LastKnownLocation="FairyEngineDesign.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="171845a2-c9e2-4f25-b410-ab98ed7a2792"
+            name="파일 로딩"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4b5ca906-70d7-4b7e-a7ed-4b872bd1c2a9"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="295578d7-1880-4864-9553-af1d04a0e6d7"
+                  LastKnownName="플레이어 업데이트"
+                  LastKnownLocation="FairyEngineDesign.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="295578d7-1880-4864-9553-af1d04a0e6d7"
+            name="플레이어 업데이트"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="86cc27f6-f921-4c77-b106-3138f2756556"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e33457e4-b2ad-416a-b58a-979e94dd8d35"
+                  LastKnownName="적 및 총알 업데이트"
+                  LastKnownLocation="FairyEngineDesign.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="e33457e4-b2ad-416a-b58a-979e94dd8d35"
+            name="적 및 총알 업데이트"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ced2614a-4b06-442d-b88a-acc99a4dd661"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="34fa0b67-904a-4626-8931-f5b514b455a2"
+                  LastKnownName="충돌?"
+                  LastKnownLocation="FairyEngineDesign.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="34fa0b67-904a-4626-8931-f5b514b455a2"
+            name="충돌?"
+            isLeaf="false">
+            <pins>
+              <opaqueActionHasOutputValues>
+                <outputPin
+                  Id="8018d7b6-6a5d-4b9d-9477-f2d46026f9a6"
+                  name="참"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="d6e6cf99-cd8b-4a10-8e96-93774947948c"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <opaqueActionMoniker
+                        Id="af3ac342-dc6f-4516-ac60-72f0969d5134"
+                        LastKnownName="생명==0?"
+                        LastKnownLocation="FairyEngineDesign.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="5c676a02-29ff-4c50-8104-0562fabf8c30"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+              <opaqueActionHasOutputValues>
+                <outputPin
+                  Id="b154feff-b096-4ef8-ac39-590563d1b49c"
+                  name="거짓"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="42f9e4e3-163f-41fa-9e68-567234ba94a2"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <opaqueActionMoniker
+                        Id="295578d7-1880-4864-9553-af1d04a0e6d7"
+                        LastKnownName="플레이어 업데이트"
+                        LastKnownLocation="FairyEngineDesign.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="f90200a8-411a-49fc-8ed2-8eab595a1f58"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction
+            Id="af3ac342-dc6f-4516-ac60-72f0969d5134"
+            name="생명==0?"
+            isLeaf="false">
+            <pins>
+              <opaqueActionHasOutputValues>
+                <outputPin
+                  Id="752291cc-61d8-48e9-bd9c-0360a8465cf0"
+                  name="거짓"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="b98c4a80-3faa-482b-9659-d01b04d3d39c"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <opaqueActionMoniker
+                        Id="73fc564a-2559-482c-a9a4-92c1bbbfa281"
+                        LastKnownName="생명 감소"
+                        LastKnownLocation="FairyEngineDesign.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="d5dbcbdb-5629-4c37-bad2-bd28c9c7705d"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+              <opaqueActionHasOutputValues>
+                <outputPin
+                  Id="7104a4b4-c717-4e93-bfd4-18dc57f5685d"
+                  name="참"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="ab2377ba-fd61-44d2-8197-7bdb994646b0"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <opaqueActionMoniker
+                        Id="1e8b3e7a-c73c-40a3-b66e-24e42a5aff30"
+                        LastKnownName="크레딧==0?"
+                        LastKnownLocation="FairyEngineDesign.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="1c18abe2-8c26-40b4-a759-c9e6f0f642b8"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction
+            Id="73fc564a-2559-482c-a9a4-92c1bbbfa281"
+            name="생명 감소"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="14fe5314-b8df-4277-b930-37ccb6640571"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="5ff8b90d-072a-4d04-9a26-4e5ce391cfdb"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="FairyEngineDesign.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="1e8b3e7a-c73c-40a3-b66e-24e42a5aff30"
+            name="크레딧==0?"
+            isLeaf="false">
+            <pins>
+              <opaqueActionHasOutputValues>
+                <outputPin
+                  Id="4d16af02-f9fe-4e41-9ffe-333bf52514bc"
+                  name="참"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="7ae7b32d-d949-41f7-81cb-44ae218f5d6a"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <opaqueActionMoniker
+                        Id="81fdbc96-6a63-4017-8f82-3ca24701bd7c"
+                        LastKnownName="플레이모드?!"
+                        LastKnownLocation="FairyEngineDesign.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="5a4543c0-9080-43be-923f-4c443957cea3"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+              <opaqueActionHasOutputValues>
+                <outputPin
+                  Id="f5419ef2-b4c4-41f0-96c9-a246511c2c59"
+                  name="거짓"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="700e3864-ecde-4f7b-944e-2a4179dda705"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <opaqueActionMoniker
+                        Id="75f8889a-0589-4705-b9d0-77abaa701265"
+                        LastKnownName="크레딧 감소"
+                        LastKnownLocation="FairyEngineDesign.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="4eb5ff0a-6e16-4a84-8fef-6d3c2f8d7845"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction
+            Id="75f8889a-0589-4705-b9d0-77abaa701265"
+            name="크레딧 감소"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="d4fd8db1-2a28-4aee-8d5a-9774ee503c92"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="5ff8b90d-072a-4d04-9a26-4e5ce391cfdb"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="FairyEngineDesign.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <mergeNode
+            Id="5ff8b90d-072a-4d04-9a26-4e5ce391cfdb"
+            name="Merge1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b84b55be-815d-49bd-bd3c-6c82085473e7"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="295578d7-1880-4864-9553-af1d04a0e6d7"
+                  LastKnownName="플레이어 업데이트"
+                  LastKnownLocation="FairyEngineDesign.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <opaqueAction
+            Id="81fdbc96-6a63-4017-8f82-3ca24701bd7c"
+            name="플레이모드?!"
+            isLeaf="false">
+            <pins>
+              <opaqueActionHasOutputValues>
+                <outputPin
+                  Id="87e3f923-b7f9-490e-972b-feec147a80d6"
+                  name="리플레이"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="3e92f9ca-b3b1-4cbc-8ee7-2b6c36c14622"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <mergeNodeMoniker
+                        Id="33856f3b-9df1-4142-9c2b-af850959a9a6"
+                        LastKnownName="Merge2"
+                        LastKnownLocation="FairyEngineDesign.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="718b15db-087b-41b3-aa2d-5a928d1529c2"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+              <opaqueActionHasOutputValues>
+                <outputPin
+                  Id="c75823dc-4e8a-4d3f-b0b2-97002ee7850b"
+                  name="기본"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="be005f0f-9ef5-4e79-9b77-a43aec3e845b"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <opaqueActionMoniker
+                        Id="45b92896-4a0d-440e-a1dd-0aaafec70f84"
+                        LastKnownName="리플레이 저장"
+                        LastKnownLocation="FairyEngineDesign.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="14012b64-5dd9-4911-8a50-1f7c63a64fb6"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </opaqueActionHasOutputValues>
+            </pins>
+          </opaqueAction>
+          <opaqueAction
+            Id="45b92896-4a0d-440e-a1dd-0aaafec70f84"
+            name="리플레이 저장"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="ce5fe375-33f3-411a-bed4-0a7d539ba327"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="33856f3b-9df1-4142-9c2b-af850959a9a6"
+                  LastKnownName="Merge2"
+                  LastKnownLocation="FairyEngineDesign.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <mergeNode
+            Id="33856f3b-9df1-4142-9c2b-af850959a9a6"
+            name="Merge2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="b5cf5248-e29a-4251-8ed6-77cf61d5d98b"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="aa80b6b1-a9ff-4aea-8a76-95c5e6e09231"
+                  LastKnownName="타이틀 화면"
+                  LastKnownLocation="FairyEngineDesign.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="2f17d1fa-f98d-4895-8765-499bc4aa72b2"
+        name="Sequence1"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <fragments>
+          <behaviorExecutionSpecification
+            Id="ebe1ece4-34e5-4458-894f-f15d3b37fe82"
+            name="BehaviorExecutionSpecification1">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="6fc9c0ca-6fb5-4a49-86ab-8ddcf35bc338"
+                LastKnownName="Lifeline2"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="c6828c8a-701d-4374-a0e3-d3f37513ba95"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="6a5f83cd-72cf-4986-a517-e06b27fecf98"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="cd45df4f-eeb6-455c-9f73-2aaefe8b4293"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="FairyEngineDesign.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="9ab3eb75-01e5-4ccd-9659-be3c3adacac2"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="6a5f83cd-72cf-4986-a517-e06b27fecf98"
+            name="ExecutionOccurrenceSpecification1">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="92a65849-94f2-429d-a903-057f2622b6d2"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="FairyEngineDesign.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="6fc9c0ca-6fb5-4a49-86ab-8ddcf35bc338"
+                LastKnownName="Lifeline2"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="210ae12d-f346-4a3d-8fd2-e25780898258"
+            name="MessageOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="0d2275de-1f83-488d-9b6f-634a2e8ff2dd"
+                LastKnownName="Lifeline1"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="cd45df4f-eeb6-455c-9f73-2aaefe8b4293"
+            name="MessageOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="6fc9c0ca-6fb5-4a49-86ab-8ddcf35bc338"
+                LastKnownName="Lifeline2"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="9ab3eb75-01e5-4ccd-9659-be3c3adacac2"
+            name="MessageOccurrenceSpecification3">
+            <covered>
+              <lifelineMoniker
+                Id="6fc9c0ca-6fb5-4a49-86ab-8ddcf35bc338"
+                LastKnownName="Lifeline2"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d2c0a932-b48c-460c-b646-dd585dc816d2"
+            name="MessageOccurrenceSpecification4">
+            <covered>
+              <lifelineMoniker
+                Id="0d2275de-1f83-488d-9b6f-634a2e8ff2dd"
+                LastKnownName="Lifeline1"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="c6828c8a-701d-4374-a0e3-d3f37513ba95"
+            name="ExecutionOccurrenceSpecification2">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="5f8f4718-d985-4044-b16a-bea32affd91a"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="FairyEngineDesign.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="6fc9c0ca-6fb5-4a49-86ab-8ddcf35bc338"
+                LastKnownName="Lifeline2"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="0d2275de-1f83-488d-9b6f-634a2e8ff2dd"
+            name="Lifeline1"
+            isActor="false"
+            lifelineDisplayName="Lifeline1">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="210ae12d-f346-4a3d-8fd2-e25780898258"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="FairyEngineDesign.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="d2c0a932-b48c-460c-b646-dd585dc816d2"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="6fc9c0ca-6fb5-4a49-86ab-8ddcf35bc338"
+            name="Lifeline2"
+            isActor="false"
+            lifelineDisplayName="Lifeline2">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="6a5f83cd-72cf-4986-a517-e06b27fecf98"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="FairyEngineDesign.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="c6828c8a-701d-4374-a0e3-d3f37513ba95"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="5613148f-5966-43bf-9250-eeeb7de03c09"
+            name="Message1"
+            messageKind="Complete"
+            messageSort="SynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="210ae12d-f346-4a3d-8fd2-e25780898258"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="cd45df4f-eeb6-455c-9f73-2aaefe8b4293"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="1b2c1617-4e51-4f00-a24b-5cab61c7f7fb"
+            name="&lt;&lt;return&gt;&gt;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="9ab3eb75-01e5-4ccd-9659-be3c3adacac2"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="d2c0a932-b48c-460c-b646-dd585dc816d2"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="FairyEngineDesign.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="92a65849-94f2-429d-a903-057f2622b6d2"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="5f8f4718-d985-4044-b16a-bea32affd91a"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
