@@ -20,7 +20,7 @@ namespace SteamB23.FairyEngine.Components
         void DestroyedEventHandler(object sender, EventArgs e)
         {
         }
-        #region ICollection 구현
+        #region 엔터티 관리 메서드
         public void Add(Entity item)
         {
             entities.Add(item);

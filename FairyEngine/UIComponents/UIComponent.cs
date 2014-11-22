@@ -9,6 +9,13 @@ namespace SteamB23.FairyEngine.UIComponents
 {
     public abstract class UIComponent
     {
+        Sprite _sprite;
+        string _name;
+        protected UIComponent()
+        {
+            Enable = true;
+            Visible = true;
+        }
         public Game Game
         {
             get;
@@ -19,23 +26,38 @@ namespace SteamB23.FairyEngine.UIComponents
             get;
             set;
         }
-        public Sprite Sprite
+        public virtual Sprite Sprite
         {
-            get;
-            set;
+            get
+            {
+                return _sprite;
+            }
+            set
+            {
+                _sprite = value;
+            }
         }
-        string name;
         public string Name
         {
             get
             {
-                return name;
+                return _name;
             }
+        }
+        public virtual bool Enable
+        {
+            get;
+            set;
+        }
+        public virtual bool Visible
+        {
+            get;
+            set;
         }
         public UIComponent(Game game, string name)
         {
             this.Game = game;
-            this.name = name;
+            this._name = name;
         }
 
         public virtual void Update(GameTime gameTime)

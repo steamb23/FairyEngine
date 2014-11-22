@@ -118,7 +118,7 @@ namespace SteamB23.FairyEngine.Components
                     0f);
             }
         }
-        #region ICollection 구현
+        #region 스프라이트 관리 메서드
         public void Add(GameSprite item)
         {
             this.Add(item, LayerType.Alpha1);

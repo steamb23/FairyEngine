@@ -23,15 +23,25 @@ namespace SteamB23.FairyEngine.UIComponents
         public ScoreView(Game game, string name, Sprite sprite, int spacing)
             : base(game, name)
         {
-            if (sprite.SpriteBoxes.Length > 10)
-                throw new ArgumentException("매개변수의 SpriteBoxes.Length는 10이상이어야합니다.");
             this.Sprite = sprite;
             this.spacing = spacing;
             this.score = (IScoreService)game.Services.GetService(typeof(IScoreService));
             if (score == null)
             {
-                MessageBox.GetServiceError(this, typeof(IScoreService), "", game);
-                Game.Exit();
+                throw new ArgumentException("서비스를 가져올 수 없습니다.", "game");
+            }
+        }
+        public override Sprite Sprite
+        {
+            get
+            {
+                return base.Sprite;
+            }
+            set
+            {
+                if (value.SpriteBoxes.Length > 10)
+                    throw new ArgumentException("매개변수의 SpriteBoxes.Length는 10이상이어야합니다.");
+                base.Sprite = value;
             }
         }
         public override void Draw(GameTime gameTime)
