@@ -66,7 +66,7 @@ namespace SteamB23.FairyEngine
             game.Services.AddService(typeof(IEntityService), entityManager);
             game.Services.AddService(typeof(IGameScreenService), gameScreenManager);
             game.Services.AddService(typeof(IGameUIService), gameUI);
-            game.Services.AddService(score.GetType(), score);
+            game.Services.AddService(typeof(IScoreService), score);
         }
     }
 }

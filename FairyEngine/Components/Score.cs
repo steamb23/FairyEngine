@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace SteamB23.FairyEngine.Components
 {
-    public class Score : GameComponent
+    public class Score : GameComponent, IScoreService
     {
         int rate;
         byte[] numbers;
@@ -95,6 +95,10 @@ namespace SteamB23.FairyEngine.Components
                         scoreTemp++;
                     #endregion
                 }
+                else if (score < scoreTemp)
+                {
+                    scoreTemp = score;
+                }
                 // scoreTemp와 scoreTempMirror가 다르면 numbers를 업데이트 시켜버린다.
                 if (scoreTemp != scoreTempMirror)
                 {
@@ -122,14 +126,35 @@ namespace SteamB23.FairyEngine.Components
         }
         void NumbersSync()
         {
-            for (int i = 0; i < numbers.Length; i++)
+            int length = numbers.Length;
+            for (int i = 1; i <= length; i++)
             {
-                var number = scoreTemp % (10 * (i + 1));
-                if (number != scoreTemp)
-                    numbers[i] = (byte)number;
-                else
-                    numbers[i] = 0;
+                numbers[i] = ChiperCheck(scoreTemp, i);
             }
+            // 오버플로 검사
+            if (ChiperCheck(scoreTemp, length + 1) > 0)
+                overFlow = true;
+            else
+                overFlow = false;
+        }
+        byte ChiperCheck(decimal number, int n)
+        {
+            int chiper;
+            if (n > 1)
+            {
+                // n이 1보다 크다는 것은 자릿수가 2 이상이라는 의미 이므로 10을 대입.
+                chiper = 10;
+                // n이 2를 초과하면 10을 곱한다.(제곱)
+                for (int i = 2; i < n; i++)
+                {
+                    chiper *= 10;
+                }
+            }
+            else
+            {
+                chiper = 1;
+            }
+            return (byte)(number / chiper % 10);
         }
         #endregion
     }

@@ -40,7 +40,20 @@ namespace FairyEngineTest
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            resource = new GameResource(this, new Rectangle(), 5);
+            //resource = new GameResource(this, new Rectangle(), 5);
+            try
+            {
+                var a = (IScoreService)Services.GetService(typeof(IScoreService));
+                if (a == null)
+                {
+
+                    MessageBox.GetServiceError(this, typeof(IScoreService), "이 메세지는 테스트입니다.",this);
+                    this.Exit();
+                }
+            }
+            catch (InvalidCastException e)
+            {
+            }
             base.Initialize();
         }
 
