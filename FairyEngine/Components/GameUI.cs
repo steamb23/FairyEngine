@@ -33,10 +33,13 @@ namespace SteamB23.FairyEngine.Components
         }
         public override void Draw(GameTime gameTime)
         {
+            var spriteBatch = ((GameResource)Game.Services.GetService(typeof(GameResource))).spriteBatch;
+            spriteBatch.Begin();
             foreach (var ftemp in uiComponentList)
             {
                 ftemp.Value.Draw(gameTime);
             }
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
